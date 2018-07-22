@@ -1,1 +1,93 @@
-/* pages/home/home.wxss */
+.main-point {
+  background-color: white;
+  margin: 50rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+}
+.main-point .title,
+.split {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 50rpx 50rpx 0;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.split {
+  width: 300rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-point .title image,
+.split image {
+  width: 24rpx;
+  height: 39rpx;
+  margin: 20rpx;
+}
+
+.main-point .images {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.main-point .images .discount {
+  position: absolute;
+  width: 259rpx;
+  height: 188rpx;
+  left: 30rpx;
+  bottom: 0;
+}
+
+.main-point .images .item {
+  margin-left: 300rpx; 
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.items {
+  width: 650rpx;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item-item {
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  background-color: white;
+  margin: 15rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.item-item image {
+  width: 250rpx;
+  height: 250rpx;
+  margin: auto;
+}
+
+.item-item .add {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-item .add .icon {
+  background-color: yellow;
+  text-align: center;
+
+  padding: 2rpx 15rpx;
+  border-radius: 50%;
+}
+
+.item-item .add .price {
+  flex-grow: 1;
+  margin-left: 10rpx;
+}

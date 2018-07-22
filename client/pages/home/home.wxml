@@ -1,2 +1,28 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<image src='/images/bg.png' class='bg'></image>
+<view class="main-point">
+  <view class="title">
+    <image src="/images/line-red.png"></image>
+    <view>{{ productList[0].name }}</view>
+    <image src="/images/line-red.png"></image>
+  </view>
+  <view class="images">
+    <image class="discount" src="/images/discount.png" mode="widthFix"></image>
+    <image class="item" src="{{ productList[0].image }}"></image>
+  </view>
+</view>
+<view class="split">
+  <image src="/images/line-red.png"></image>
+  <view>春季推荐</view>
+  <image src="/images/line-red.png"></image>
+</view>
+<view class="items">
+  <navigator wx:for="{{ productList }}" class="item-item" wx:if="{{ index !== 0 }}">
+    <image src="{{ item.image }}"></image>
+    <view class="name">{{ item.name }}</view>
+    <view class="add">
+      <view class="icon">¥</view>
+      <view class="price">{{ item.price }}</view>
+      <view class="icon">+</view>
+    </view>
+  </navigator>
+</view>
