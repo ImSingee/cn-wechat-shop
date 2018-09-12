@@ -81,6 +81,9 @@ Page({
       },
       fail: error => {
         console.error(error)
+        wx.showToast({
+          title: '商品数据加载失败',
+        })
       },
       complete: () => {
         wx.hideLoading()
