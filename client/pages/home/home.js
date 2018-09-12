@@ -1,4 +1,5 @@
 // pages/home/home.js
+const config = require('../../config.js')
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 
 Page({
@@ -15,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     qcloud.request({
-      url: 'https://oavmcitg.qcloud.la/weapp/product',
+      url: config.service.productListUrl,
       success: result => {
         console.log(result)
         this.setData({
