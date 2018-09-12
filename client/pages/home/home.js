@@ -15,18 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    qcloud.request({
-      url: config.service.productListUrl,
-      success: result => {
-        console.log(result)
-        this.setData({
-          productList: result.data.data
-        })
-      },
-      fail: result => {
-        console.error(result)
-      }
-    })
+    this.getProductList()
   },
 
   /**
@@ -76,5 +65,26 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  getProductList(){
+    wx.showLoading({
+      title: '商品数据加载中',
+    })
+    qcloud.request({
+      url: config.service.productListUrl,
+      success: response => {
+        console.log(response)
+        this.setData({
+          productList: response.data.data
+        })
+      },
+      fail: error => {
+        console.error(error)
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
   }
 })
