@@ -75,9 +75,15 @@ Page({
       url: config.service.productListUrl,
       success: response => {
         console.log(response)
-        this.setData({
-          productList: response.data.data
-        })
+        if (!response.data.code) {
+          this.setData({
+            productList: response.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '商品数据加载失败',
+          })
+        }
       },
       fail: error => {
         console.error(error)
