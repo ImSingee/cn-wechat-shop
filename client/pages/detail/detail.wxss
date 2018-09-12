@@ -1,0 +1,28 @@
+.buttons {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+}
+
+.buttons button {
+  width: 375rpx;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons button.btn-add {
+  background-color: rgb(247, 234, 163);
+}
+
+.buttons button.btn-buy {
+  background-color: rgb(245, 224, 105);
+}
+
+button::after {
+  border: none;
+}
