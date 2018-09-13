@@ -1,24 +1,30 @@
-<view>
-  <image src="{{ product.image }}"></image>
-  <view>{{ product.name }}</view>
-  <view>{{ product.source }}</view>
-  <view>¥</view>
-  <view>{{ product.price }}</view>
-</view>
-<view>
-  <view>
-   <view>7 天免费退货</view>
-   <view>24 小时内发货并配备运费险</view> 
+<view class="commodity">
+  <image src="{{ product.image }}" mode="aspectFill"></image>
+  <view class="name">{{ product.name }}</view>
+  <view class="source">{{ product.source }}</view>
+  <view class="price">
+    <view class="number">{{ product.price }}</view>
+    <view class="icon">¥</view>
   </view>
-  <view>
-    <view>
-      <view>已买评价</view>
-      <view>
-        <view>一条</view>
-        <view>></view>
-      </view>
+</view>
+<view class="info">
+  <view class="note">
+    <view class="note-item">
+      <image src="/images/check-yellow.png" mode="aspectFill"></image>
+      <view class="text">7 天免费退货</view>
     </view>
-    <view>"test"</view>
+    <view class="note-item">
+      <image src="/images/check-yellow.png" mode="aspectFill"></image>
+      <view class="text">24 小时内发货并配备运费险</view>
+    </view>
+  </view>
+  <view class="comment">
+    <view class="header">
+      <view class="title">已买评价</view>
+      <view class="number">1 条</view>
+      <image src="/images/grey-arrow.png" mode="aspectFill"></image>
+    </view>
+    <view class="content">"test"</view>
   </view>
 </view>
 <view class="buttons">

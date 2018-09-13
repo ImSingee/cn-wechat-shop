@@ -1,3 +1,99 @@
+.commodity {
+  background-color: white;
+  padding: 30rpx;
+}
+
+.commodity image {
+  height: 400rpx;
+}
+
+.commodity .name {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.commodity .source {
+  font-size: 34rpx;
+  color: rgb(171, 171, 171);
+}
+
+.commodity .price {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.commodity .price .icon {
+  background-color: yellow;
+  text-align: center;
+
+  padding: 2rpx 15rpx;
+  border-radius: 50%;
+}
+
+.info {
+  width: 600rpx;
+  background-color: white;
+  margin: 30rpx auto 0;
+  padding: 40rpx;
+  border-radius: 30rpx;
+  border: 2rpx solid rgb(239, 239, 239);
+}
+
+.info .note {
+  border-bottom: 2rpx solid darkgray;
+  padding: 0 20rpx 30rpx;
+}
+
+.info .note .note-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info .note .note-item image {
+  width: 44rpx;
+  height: 32rpx;
+}
+
+.info .note .note-item .text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  opacity: 0.8;
+}
+
+.info .comment {
+  padding: 0 20rpx;
+}
+
+.info .comment .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30rpx 0;
+}
+
+.info .comment .header .title {
+  font-weight: bold;
+  flex-grow: 1;
+  font-size: 36rpx;
+}
+
+.info .comment .header .number {
+  color: rgb(144, 148, 153);
+  font-size: 32rpx;
+  margin-right: 20rpx;
+}
+
+.info .comment .header image {
+  width: 11rpx;
+  height: 18rpx;
+}
+
+.info .comment .content {
+  color: rgb(144, 148, 153);
+}
+
 .buttons {
   position: fixed;
   bottom: 0;
