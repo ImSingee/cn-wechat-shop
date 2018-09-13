@@ -24,7 +24,8 @@ var config = {
         uploadUrl: `${host}/weapp/upload`,
 
         // 获取商品数据接口
-        productListUrl: `${host}/weapp/product`
+        productListUrl: `${host}/weapp/product`,
+        productDetailUrl: `${host}/weapp/product/`
     }
 };
 
