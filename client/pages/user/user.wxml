@@ -1,5 +1,5 @@
 <image src='/images/bg.png' class='bg'></image>
-<view class="unlogin">
+<view class="unlogin" wx:if="{{ !userInfo }}">
   <view class="user-info">
     <view class="circle"></view>
     <view class="note">
@@ -8,4 +8,21 @@
     </view>
   </view>
   <button open-type='getUserInfo'>微信登录</button>
+</view>
+<view wx:else>
+  <view class="user-info">
+    <!-- <view class="avatar"></view> -->
+    <image class="avatar" src="{{ userInfo.avatarUrl }}"></image>
+    <view class="name">{{ userInfo.nickName }}</view>
+  </view>
+  <view class="buttons">
+    <view class="button">
+      <button>收货地址</button>
+      <image src="/images/grey-arrow.png" mode="scaleFill"></image>
+    </view>
+    <view class="button">
+      <button>联系客服</button>
+      <image src="/images/grey-arrow.png" mode="scaleFill"></image>
+    </view>
+  </view>
 </view>

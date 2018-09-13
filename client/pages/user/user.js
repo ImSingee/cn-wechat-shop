@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {
+      nickName: "优达学城",
+      avatarUrl: "", // 头像 URL 地址
+    }, // 虚拟数据
   },
 
   /**

@@ -1,1 +1,57 @@
-/* pages/user/user.wxss */
+.user-info {
+  margin: 30rpx 20rpx 10rpx;
+  padding: 50rpx;
+  background-color: white;
+  border-radius: 20rpx 20rpx 0 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.avatar{
+  background-color: rgb(244, 223, 114);
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.user-info .name {
+  margin-left: 30rpx;
+  font-weight: bold;
+  font-size: 42rpx;
+}
+
+.buttons {
+  margin: 0 20rpx;
+  padding: 0 20rpx;
+  background-color: white;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.buttons .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid rgba(211, 211, 211, 0.521);
+}
+
+.buttons .button:last-child {
+  border: none;
+}
+
+.buttons .button button {
+  background-color: white;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.buttons .button button::after {
+  border: none;
+}
+
+.buttons .button image {
+  width: 11rpx;
+  height: 18rpx;
+}
