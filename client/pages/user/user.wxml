@@ -1,2 +1,11 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<image src='/images/bg.png' class='bg'></image>
+<view class="unlogin">
+  <view class="user-info">
+    <view class="circle"></view>
+    <view class="note">
+      <view class="name">未登录</view>
+      <view class="tip">点击微信登录后可方便购物</view>
+    </view>
+  </view>
+  <button open-type='getUserInfo'>微信登录</button>
+</view>

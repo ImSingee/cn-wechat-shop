@@ -10,3 +10,47 @@ page {
   height: 144rpx;
   z-index: -1;
 }
+
+.unlogin .user-info {
+  margin: 30rpx 20rpx 10rpx;
+  padding: 50rpx;
+  background-color: white;
+  border-radius: 20rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.unlogin .user-info .circle {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: rgb(244, 223, 114);
+}
+
+.unlogin .user-info .note {
+  margin-left: 30rpx;
+}
+
+.unlogin .user-info .note .name {
+  font-weight: bold;
+  font-size: 42rpx;
+}
+
+.unlogin .user-info .note .tip {
+  color: rgb(168, 166, 165);
+  font-size: 28rpx;
+}
+
+.unlogin button {
+  font-weight: bold;
+  background-color: #f4df72;
+  border-radius: 15rpx;
+  width: 300rpx;
+  margin: 50rpx auto;
+}
+
+.unlogin button::after {
+  border: none;
+}
