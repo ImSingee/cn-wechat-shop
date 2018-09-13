@@ -7,6 +7,10 @@ module.exports = {
   detail: async ctx => {
     productId = parseInt(ctx.params.id)
 
-    ctx.state.data = (await DB.query("SELECT * FROM product WHERE product.id = ?", [productId]))[0]
+    if(!isNaN(productId)) {
+      ctx.state.data = (await DB.query("SELECT * FROM product WHERE product.id = ?", [productId]))[0]
+    } else {
+      ctx.state.data = {}
+    }
   }
 }
