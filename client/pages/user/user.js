@@ -1,5 +1,3 @@
-const config = require('../../config.js')
-const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const app = getApp()
 
 Page({
@@ -7,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null, // 虚拟数据
+    userInfo: null,
   },
 
   /**
