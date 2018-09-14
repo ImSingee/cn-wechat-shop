@@ -10,4 +10,7 @@
   <button open-type='getUserInfo' bindgetuserinfo="onTapLogin">微信登录</button>
 </view>
 <view wx:else>
+<view wx:if="{{ orderList.length }}">
+</view>
+<view wx:else class="empty">暂无订单</view>
 </view>

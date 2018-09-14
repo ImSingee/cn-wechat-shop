@@ -1,1 +1,12 @@
-/* pages/order/order.wxss */
+.empty {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 60rpx;
+  opacity: 0.5;
+}
