@@ -10,3 +10,82 @@
   font-size: 60rpx;
   opacity: 0.5;
 }
+
+.order-page {
+  padding: 30rpx;
+}
+
+.order-page .header {
+  display: flex;
+  flex-direction: row;
+}
+
+.order-page .header image {
+  width: 31.5rpx;
+  height: 51rpx;
+}
+
+.order-page .header .title {
+  margin-left: 10rpx;
+  font-size: 36rpx;
+  color: #717277;
+}
+
+.order {
+  background-color: white;
+  margin: 30rpx 0;
+  padding: 0 20rpx;
+  border-radius: 30rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  padding: 40rpx 0;
+  border-bottom: 4rpx solid rgb(228, 228, 228);
+}
+
+.item:last-child {
+  border: none;
+}
+
+.item .left {
+  width: 188rpx;
+  align-self: center;
+}
+
+.item .middle {
+  flex-grow: 1;
+  margin-left: 10rpx;
+  font-size: 36rpx;
+  line-height: 1.8;
+}
+
+.item .middle .name {
+  opacity: 0.7;
+}
+
+.item .middle .price {
+  font-weight: bold;
+}
+
+.item .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item .right button {
+  background-color: rgb(245, 224, 105);
+  padding: 15rpx 30rpx;
+  font-size: 36rpx;
+  line-height: 1.4;
+}
+.item .right button:after {
+  border: none;
+}
+
+.item .right .number {
+  text-align: right;
+}

@@ -10,7 +10,24 @@
   <button open-type='getUserInfo' bindgetuserinfo="onTapLogin">微信登录</button>
 </view>
 <view wx:else>
-<view wx:if="{{ orderList.length }}">
+<view wx:if="{{ orderList.length }}" class="order-page">
+  <view class="header">
+    <image src="/images/line-black.png" mode="aspectFill"></image>
+    <view class="title">已完成</view>
+  </view>
+  <view wx:for="{{ orderList }}" wx:key="id" class="order">
+    <view wx:for="{{ item.list }}" class="item">
+      <image src="{{ item.image }}" class="left" mode="widthFix"></image>
+      <view class="middle">
+        <view class="name">{{ item.name }}</view>
+        <view class="price">¥ {{ item.price }}</view>
+      </view>
+      <view class="right">
+          <button>评价</button>
+          <view class="number">x{{ item.count }}</view>
+      </view>
+    </view>
+  </view>
 </view>
 <view wx:else class="empty">暂无订单</view>
 </view>

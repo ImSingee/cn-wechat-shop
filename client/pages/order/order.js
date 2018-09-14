@@ -12,7 +12,7 @@ Page({
         id: 0,
         list: [{
           count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
+          image: 'https://product-1251115520.cossh.myqcloud.com/product1.jpg',
           name: '商品1',
           price: 50.5,
         }]
@@ -21,13 +21,13 @@ Page({
         id: 1,
         list: [{
           count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
+          image: 'https://product-1251115520.cossh.myqcloud.com/product1.jpg',
           name: '商品1',
           price: 50.5,
         },
         {
           count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
+          image: 'https://product-1251115520.cossh.myqcloud.com/product1.jpg',
           name: '商品2',
           price: 50.5,
         }
@@ -37,7 +37,7 @@ Page({
         id: 2,
         list: [{
           count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
+          image: 'https://product-1251115520.cossh.myqcloud.com/product1.jpg',
           name: '商品2',
           price: 50.5,
         }]
