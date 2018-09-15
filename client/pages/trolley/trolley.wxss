@@ -31,6 +31,10 @@
   text-align: right;
 }
 
+.middle {
+  margin-bottom: 80rpx;
+}
+
 .middle .item {
   display: flex;
   flex-direction: center;
@@ -97,4 +101,47 @@
 .middle .item .number .editing button:after {
   border:none;
   padding: 0;
+}
+
+.bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  background-color: white;
+  height: 80rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-size: 36rpx;
+}
+
+.bottom .label {
+  opacity: 0.7; 
+  font-size: 28rpx;
+}
+
+.bottom .price {
+  margin: 0 30rpx;
+}
+
+.bottom button {
+  margin: 0;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #F5E069;
+  color: #34373D;
+  border-radius: 0;
+}
+
+.bottom button:disabled {
+  color: rgba(52, 55, 61, 0.5);
+}
+
+.bottom button::after {
+  border: none;
 }

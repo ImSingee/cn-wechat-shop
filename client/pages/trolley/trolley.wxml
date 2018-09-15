@@ -40,4 +40,9 @@
     </view>
   </view>
 </scroll-view>
+<view class="bottom">
+  <view class="label">总价</view>
+  <view class="price">¥ {{ trolleyAccount }}</view>
+  <button disabled='{{ !trolleyAccount }}'>结算</button>
+</view>
 </view>
