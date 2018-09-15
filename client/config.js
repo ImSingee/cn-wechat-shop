@@ -28,7 +28,9 @@ var config = {
         productDetailUrl: `${host}/weapp/product/`,
 
         // 购买商品接口
-        orderAddUrl: `${host}/weapp/order`
+        orderAddUrl: `${host}/weapp/order`,
+        // 订单列表接口
+        orderListUrl: `${host}/weapp/order`
     }
 };
 

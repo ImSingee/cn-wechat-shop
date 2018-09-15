@@ -39,5 +39,7 @@ router.get('/product/:id', controllers.product.detail)
 
 // POST 新增订单
 router.post('/order', validationMiddleware, controllers.order.add)
+// GET 获取订单
+router.get('/order', validationMiddleware, controllers.order.list)
 
 module.exports = router
