@@ -8,7 +8,7 @@ module.exports = {
         let productList = ctx.request.body.list || []
 
         // 插入订单至 order_user 表
-        let order = await DB.query('INSERT INTO order_user(user) VALUES (?)', [user])
+        let order = await DB.query('INSERT INTO order_user (user) VALUES (?)', [user])
 
         let orderId = order.insertId
 
@@ -20,9 +20,9 @@ module.exports = {
 
             param.push(orderId)
             param.push(product.id)
-            parampush(product.count || 1)
+            param.push(product.count || 1)
         })
 
-        await DB.query('INSERT INTO order_product(order_id, product_id, count) VALUES ' + query.join(', '), param)
+        await DB.query('INSERT INTO order_product (order_id, product_id, count) VALUES ' + query.join(', '), param)
     }
 }
