@@ -96,5 +96,11 @@ Page({
                 })
             }
         })
+    },
+
+    changeTrolleyEdit() {
+        this.setData({
+            isTrolleyEdit: !this.data.isTrolleyEdit
+        })
     }
 })
