@@ -11,6 +11,13 @@
 </view>
 <view wx:else>
 <view wx:if="{{ trolleyList.length }}">
+<view class="top">
+  <view class="circle {{ isTrolleyTotalCheck ? 'yellow' : '' }}">
+    <image src="/images/check.png" mode="aspectFill" wx:if="{{ isTrolleyTotalCheck }}"></image>
+  </view>
+  <view class="">全选</view>
+  <view class="edit">{{ isTrolleyEdit ? '完成' : '编辑'}}</view>
+</view>
 </view>
 <view wx:else class="empty">购物车中没有商品</view>
 </view>
