@@ -22,7 +22,7 @@ Page({
             source: '海外·新西兰',
             count: 3,
         }], // 购物车商品列表
-        trolleyCheckMap: [undefined, true, undefined], // 购物车中选中的 id 哈希表
+        trolleyCheckMap: [true, false], // 购物车中选中的 index 哈希表
         trolleyAccount: 45, // 购物车结算总价
         isTrolleyEdit: false, // 购物车是否处于编辑状态
         isTrolleyTotalCheck: true, // 购物车中商品是否全选

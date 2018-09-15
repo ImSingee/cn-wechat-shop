@@ -20,4 +20,24 @@
 </view>
 </view>
 <view wx:else class="empty">购物车中没有商品</view>
+<scroll-view scroll-y class="middle">
+  <view wx:for="{{ trolleyList }}" wx:key="id" class="item">
+    <view class="check">
+      <image src="/images/check.png" mode="aspectFill" wx:if="{{ trolleyCheckMap[index] }}"></image>
+    </view>
+    <image src="{{ item.image }}" class="image" mode="widthFix"></image>
+    <view class="info">
+      <view class="name">{{ item.name }}</view>
+      <view class="price">¥ {{ item.price }}</view>
+    </view>
+    <view class="number">
+      <view wx:if="{{ isTrolleyEdit }}" class="editing">
+        <button>-</button>
+        <view class="text">{{ item.count }}</view>
+        <button>+</button>
+      </view>
+      <view wx:else>x{{ item.count }}</view>
+    </view>
+  </view>
+</scroll-view>
 </view>

@@ -30,3 +30,71 @@
   flex-grow: 1;
   text-align: right;
 }
+
+.middle .item {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  margin: 20rpx 40rpx;
+  padding: 30rpx;
+  border-radius: 30rpx; 
+  background-color: white;
+}
+
+.middle .item .check {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 44rpx;
+  background-color: rgb(236, 236, 238);
+}
+
+.middle .item .check image {
+  width: 33rpx;
+  height: 24rpx;
+  margin: 10rpx 5rpx;
+}
+
+.middle .item .image {
+  width: 200rpx;
+  margin: 0 30rpx;
+}
+
+.middle .item .info {
+  align-self: flex-start;
+  flex-grow: 1;
+}
+
+.middle .item .info .name {
+  opacity: 0.7;
+}
+
+.middle .item .number {
+  align-self: flex-end;
+}
+
+.middle .item .number .editing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.middle .item .number .editing .text {
+  margin: 0 10rpx;
+}
+
+.middle .item .number .editing button {
+  font-size: 30rpx;
+  text-align: center;
+  padding: 0;
+  line-height: 30rpx;
+  background-color: white;
+  border: 1px solid rgb(245, 224, 105);
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.middle .item .number .editing button:after {
+  border:none;
+  padding: 0;
+}
