@@ -109,9 +109,10 @@ Page({
     },
 
     buy() {
-        let product = Object.assign({
+        let product = {
+            id: this.data.product.id,
             count: 1
-        }, this.data.product)
+        }
 
         console.log(product)
 
