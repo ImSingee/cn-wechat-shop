@@ -16,7 +16,7 @@
     <view class="title">已完成</view>
   </view>
   <view wx:for="{{ orderList }}" wx:key="id" class="order">
-    <view wx:for="{{ item.list }}" class="item">
+    <view wx:for="{{ item.list }}" wx:key="id" class="item">
       <image src="{{ item.image }}" class="left" mode="widthFix"></image>
       <view class="middle">
         <view class="name">{{ item.name }}</view>

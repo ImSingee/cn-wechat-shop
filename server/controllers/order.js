@@ -40,6 +40,35 @@ module.exports = {
             'ORDER BY order_product.order_id', [user]
         )
 
-        ctx.state.data = {list}
+        let ret = []
+
+        list.forEach(item => {
+            let index = ret.findIndex(e => e.id === item.id)
+            if (index !== -1) {
+                ret[index].list.push({
+                    name: item.name,
+                    price: item.price,
+                    count: item.count,
+                    image: item.image,
+                    id: item.product_id
+                })
+            } else {
+                ret.push({
+                    id: item.id,
+                    list: [{
+                        name: item.name,
+                        price: item.price,
+                        count: item.count,
+                        image: item.image,
+                        id: item.product_id
+                    }]
+                })
+            }
+
+        })
+
+        ctx.state.data = {
+            orderList: ret
+        }
     }
 }
