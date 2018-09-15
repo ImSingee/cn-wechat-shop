@@ -28,6 +28,6 @@
   </view>
 </view>
 <view class="buttons">
-  <button class="btn-add">加入购物车</button>
+  <button class="btn-add" bindtap="addToTrolley">加入购物车</button>
   <button class="btn-buy" bindtap="bindBuy">立即购买</button>
 </view>

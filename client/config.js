@@ -30,7 +30,10 @@ var config = {
         // 购买商品接口
         orderAddUrl: `${host}/weapp/order`,
         // 订单列表接口
-        orderListUrl: `${host}/weapp/order`
+        orderListUrl: `${host}/weapp/order`,
+
+        // 添加到购物车接口
+        trolleyAddUrl: `${host}/weapp/trolley`
     }
 };
 

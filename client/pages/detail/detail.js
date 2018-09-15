@@ -108,6 +108,51 @@ Page({
         this.buy()
     },
 
+    addToTrolley(){
+        let product = {
+            id: this.data.product.id
+        }
+
+        console.log(product)
+
+        wx.showLoading({
+            title: '正在添加',
+        })
+        qcloud.request({
+            url: config.service.trolleyAddUrl,
+            method: 'PUT',
+            login: true,
+            data: {
+                product
+            },
+            success: result => {
+                console.log(result)
+
+                let data = result.data
+                if (!data.code) {
+                    wx.showToast({
+                        title: '添加成功'
+                    })
+                } else {
+                    wx.showToast({
+                        icon: none,
+                        title: '添加失败'
+                    })
+                }
+            },
+            fail: error => {
+                console.error(error)
+                wx.showToast({
+                    icon: none,
+                    title: '添加失败'
+                })
+            },
+            complete: () => {
+                wx.hideLoading()
+            }
+        })
+    },
+
     buy() {
         let product = {
             id: this.data.product.id,
