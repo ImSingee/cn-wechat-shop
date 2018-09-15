@@ -25,7 +25,10 @@ var config = {
 
         // 获取商品数据接口
         productListUrl: `${host}/weapp/product`,
-        productDetailUrl: `${host}/weapp/product/`
+        productDetailUrl: `${host}/weapp/product/`,
+
+        // 购买商品接口
+        orderAddUrl: `${host}/weapp/order`
     }
 };
 
