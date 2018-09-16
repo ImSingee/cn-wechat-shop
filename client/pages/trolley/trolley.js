@@ -9,29 +9,11 @@ Page({
      */
     data: {
         userInfo: null,
-        trolleyList: [
-            // {
-            //     id: 1,
-            //     name: '商品1',
-            //     image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product1.jpg',
-            //     price: 45,
-            //     source: '海外·瑞典',
-            //     count: 1,
-            // }, {
-            //     id: 2,
-            //     name: '商品2',
-            //     image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product2.jpg',
-            //     price: 158,
-            //     source: '海外·新西兰',
-            //     count: 3,
-            // }
-        ], // 购物车商品列表
-        trolleyCheckMap: [
-            // true, false
-        ], // 购物车中选中的 index 哈希表
+        trolleyList: [], // 购物车商品列表
+        trolleyCheckMap: [], // 购物车中选中的 index 哈希表
         trolleyAccount: 0, // 购物车结算总价
         isTrolleyEdit: false, // 购物车是否处于编辑状态
-        isTrolleyTotalCheck: true, // 购物车中商品是否全选
+        isTrolleyTotalCheck: false, // 购物车中商品是否全选
     },
 
     /**
@@ -147,6 +129,46 @@ Page({
             complete: () => {
                 wx.hideLoading()
             }
+        })
+    },
+
+    setSingleCheck(event) {
+        console.log(event)
+
+        let index = event.currentTarget.dataset.index
+        console.log(index)
+
+        let trolleyCheckMap = this.data.trolleyCheckMap
+        trolleyCheckMap[index] = !trolleyCheckMap[index]
+
+        this.setData({trolleyCheckMap})
+        this.refreshTotalCheck()
+    },
+
+    setTotalCheck(event) {
+        let isTrolleyTotalCheck = !this.data.isTrolleyTotalCheck
+        let trolleyCheckMap = this.data.trolleyCheckMap
+        trolleyCheckMap.fill(isTrolleyTotalCheck)
+
+        this.setData({
+            isTrolleyTotalCheck,
+            trolleyCheckMap
+        })
+    },
+
+    refreshTotalCheck() {
+        let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
+        let trolleyCheckMap = this.data.trolleyCheckMap
+        let count = 0
+        trolleyCheckMap.forEach(check => {
+            if (check) {
+                count++
+            }
+        })
+        isTrolleyTotalCheck = count === trolleyCheckMap.length
+
+        this.setData({
+            isTrolleyTotalCheck
         })
     }
 })
