@@ -143,6 +143,7 @@ Page({
 
         this.setData({trolleyCheckMap})
         this.refreshTotalCheck()
+        this.refreshAccount()
     },
 
     setTotalCheck(event) {
@@ -154,6 +155,7 @@ Page({
             isTrolleyTotalCheck,
             trolleyCheckMap
         })
+        this.refreshAccount()
     },
 
     refreshTotalCheck() {
@@ -169,6 +171,21 @@ Page({
 
         this.setData({
             isTrolleyTotalCheck
+        })
+    },
+
+    refreshAccount() {
+        let trolleyAccount = 0
+        let trolleyList = this.data.trolleyList
+        let trolleyCheckMap = this.data.trolleyCheckMap
+        trolleyCheckMap.forEach((check, index) => {
+            if (check) {
+                trolleyAccount += trolleyList[index].price * trolleyList[index].count
+            }
+        })
+
+        this.setData({
+            trolleyAccount
         })
     }
 })
