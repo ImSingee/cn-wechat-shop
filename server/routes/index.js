@@ -46,5 +46,7 @@ router.get('/order', validationMiddleware, controllers.order.list)
 router.put('/trolley', validationMiddleware, controllers.trolley.add)
 // GET 获取购物车商品
 router.get('/trolley', validationMiddleware, controllers.trolley.list)
+// POST 更新购物车商品
+router.post('/trolley', validationMiddleware, controllers.trolley.update)
 
 module.exports = router
