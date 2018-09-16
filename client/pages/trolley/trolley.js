@@ -86,6 +86,7 @@ Page({
     },
 
     changeTrolleyEdit() {
+        let isTrolleyEdit = !this.data.isTrolleyEdit
         let trolleyList = this.data.trolleyList
         let trolleyCheckMap = this.data.trolleyCheckMap
 
@@ -94,12 +95,16 @@ Page({
         trolleyList = trolleyList.filter(value => value.count > 0)
 
         this.setData({
-            isTrolleyEdit: !this.data.isTrolleyEdit,
+            isTrolleyEdit,
             trolleyList,
             trolleyCheckMap
         })
         this.refreshTotalCheck()
         this.refreshAccount()
+
+        if (!isTrolleyEdit) {
+            this.updateTrolley()
+        }
     },
 
     getTrolleyList() {
@@ -222,6 +227,25 @@ Page({
 
         this.setData({
             trolleyList
+        })
+    },
+
+    updateTrolley() {
+        qcloud.request({
+            url: config.service.trolleyUpdateUrl,
+            method: 'POST',
+            data: {
+                list: this.data.trolleyList
+            },
+            error: error => {
+                console.error(error)
+                wx.showToast({
+                    title: '更新购物车失败'
+                })
+                this.getTrolleyList()
+                this.refreshTotalCheck()
+                this.refreshAccount()
+            }
         })
     }
 })
