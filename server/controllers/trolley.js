@@ -15,5 +15,13 @@ module.exports = {
         } else {
             await DB.query('INSERT INTO trolley_user(id, count, user) VALUES (?, ?, ?)', [product_id, 1, user])
         }
+    },
+
+    list: async ctx => {
+        let user = ctx.state.$wxInfo.userinfo.openId
+
+        let products = await DB.query('SELECT * FROM trolley_user LEFT JOIN product ON trolley_user.id = product.id WHERE trolley_user.user = ?', [user])
+
+        ctx.state.data = {products}
     }
 }

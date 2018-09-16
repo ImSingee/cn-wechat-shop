@@ -44,5 +44,7 @@ router.get('/order', validationMiddleware, controllers.order.list)
 
 // PUT 添加到购物车
 router.put('/trolley', validationMiddleware, controllers.trolley.add)
+// GET 获取购物车商品
+router.get('/trolley', validationMiddleware, controllers.trolley.list)
 
 module.exports = router
