@@ -34,7 +34,11 @@ Page({
     onShow: function () {
         app.checkSession({
             success: ({userInfo}) => {
-                this.setData({userInfo})
+                this.setData({
+                    userInfo,
+                    isTrolleyEdit: false,
+                    isTrolleyTotalCheck: false
+                })
                 this.getTrolleyList()
             }
         })
@@ -245,6 +249,49 @@ Page({
                 this.getTrolleyList()
                 this.refreshTotalCheck()
                 this.refreshAccount()
+            }
+        })
+    },
+
+    bindPay() {
+        this.pay()
+    },
+
+    pay() {
+        let prepareToPayProducts = this.data.trolleyList.filter((item, index) => this.data.trolleyCheckMap[index])
+
+        qcloud.request({
+            url: config.service.orderAddUrl,
+            method: 'POST',
+            data: {
+                list: prepareToPayProducts
+            },
+            success: result => {
+                console.log(result)
+                let data = result.data
+                if (!data.code) {
+                    wx.showToast({
+                        title: '购买成功'
+                    })
+                }
+
+                let unPayProducts = this.data.trolleyList.filter((item, index) => !this.data.trolleyCheckMap[index])
+                let trolleyCheckMap = Array(unPayProducts.length)
+                trolleyCheckMap.fill(false)
+                this.setData({
+                    trolleyList: unPayProducts,
+                    trolleyCheckMap
+                })
+                this.refreshTotalCheck()
+                this.refreshAccount()
+                this.updateTrolley()
+            },
+            error: error => {
+                console.error(error)
+                wx.showToast({
+                    icon: none,
+                    title: '购买失败'
+                })
             }
         })
     }
