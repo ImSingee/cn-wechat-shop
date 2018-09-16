@@ -16,13 +16,13 @@
   <image src="/images/line-red.png"></image>
 </view>
 <view class="items">
-  <navigator wx:for="{{ productList }}" class="item-item" wx:if="{{ index !== 0 }}" url="/pages/detail/detail?id={{ item.id }}">
+  <navigator wx:for="{{ productList }}" class="item-item" wx:if="{{ index !== 0 }}" url="/pages/detail/detail?id={{ item.id }}" wx:key="id">
     <image src="{{ item.image }}"></image>
     <view class="name">{{ item.name }}</view>
     <view class="add">
       <view class="icon">¥</view>
       <view class="price">{{ item.price }}</view>
-      <view class="icon">+</view>
+      <view class="icon" catchtap='addToTrolley' data-id="{{ item.id }}">+</view>
     </view>
   </navigator>
 </view>
