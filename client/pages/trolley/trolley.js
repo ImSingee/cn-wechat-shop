@@ -86,9 +86,20 @@ Page({
     },
 
     changeTrolleyEdit() {
+        let trolleyList = this.data.trolleyList
+        let trolleyCheckMap = this.data.trolleyCheckMap
+
+        trolleyCheckMap = trolleyCheckMap.filter((value, index) => trolleyList[index].count > 0)
+
+        trolleyList = trolleyList.filter(value => value.count > 0)
+
         this.setData({
-            isTrolleyEdit: !this.data.isTrolleyEdit
+            isTrolleyEdit: !this.data.isTrolleyEdit,
+            trolleyList,
+            trolleyCheckMap
         })
+        this.refreshTotalCheck()
+        this.refreshAccount()
     },
 
     getTrolleyList() {
@@ -186,6 +197,31 @@ Page({
 
         this.setData({
             trolleyAccount
+        })
+    },
+
+    bindAddCount(event) {
+        let index = event.currentTarget.dataset.index
+        let trolleyList = this.data.trolleyList
+
+        trolleyList[index].count += 1
+
+        this.setData({
+            trolleyList
+        })
+    },
+    bindMinusCount(event) {
+        let index = event.currentTarget.dataset.index
+        let trolleyList = this.data.trolleyList
+
+        trolleyList[index].count -= 1
+
+        if (trolleyList[index].count < 0) {
+            trolleyList[index].count = 0
+        }
+
+        this.setData({
+            trolleyList
         })
     }
 })

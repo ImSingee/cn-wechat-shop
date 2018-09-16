@@ -32,9 +32,9 @@
     </view>
     <view class="number">
       <view wx:if="{{ isTrolleyEdit }}" class="editing">
-        <button>-</button>
+        <button bindtap="bindMinusCount" data-index="{{ index }}">-</button>
         <view class="text">{{ item.count }}</view>
-        <button>+</button>
+        <button bindtap="bindAddCount" data-index="{{ index }}">+</button>
       </view>
       <view wx:else>x{{ item.count }}</view>
     </view>
