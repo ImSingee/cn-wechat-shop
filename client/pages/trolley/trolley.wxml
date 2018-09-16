@@ -20,7 +20,7 @@
 </view>
 </view>
 <view wx:else class="empty">购物车中没有商品</view>
-<scroll-view scroll-y class="middle">
+<scroll-view scroll-y class="middle" scroll-with-animation enable-back-to-top>
   <view wx:for="{{ trolleyList }}" wx:key="id" class="item">
     <view class="check" bindtap="setSingleCheck" data-index="{{ index }}">
       <image src="/images/check.png" mode="aspectFill" wx:if="{{ trolleyCheckMap[index] }}"></image>
