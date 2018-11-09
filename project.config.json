@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -50,7 +50,14 @@
 				{
 					"id": -1,
 					"name": "购物车",
-					"pathName": "pages/trolley/trolley"
+					"pathName": "pages/trolley/trolley",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "添加评价",
+					"pathName": "pages/add-comment/add-comment",
+					"query": "id=1&name=钱包&price=132&image=https://product-1251115520.cossh.myqcloud.com/product1.jpg"
 				}
 			]
 		}
