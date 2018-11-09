@@ -27,11 +27,11 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": -1,
 			"list": [
 				{
-					"id": 0,
-					"name": "detail",
+					"id": -1,
+					"name": "商品详情",
 					"pathName": "pages/detail/detail",
 					"query": "id=1"
 				},
@@ -54,11 +54,17 @@
 					"query": ""
 				},
 				{
-					"id": 4,
+					"id": -1,
 					"name": "添加评价",
 					"pathName": "pages/add-comment/add-comment",
 					"query": "id=1&name=钱包&price=132&image=https://product-1251115520.cossh.myqcloud.com/product1.jpg"
-				}
+				},
+        {
+          "id": -1,
+          "name": "查看评价",
+          "pathName": "pages/comment/comment",
+          "query": "id=1&name=钱包&price=132&image=https://product-1251115520.cossh.myqcloud.com/product1.jpg"
+        }
 			]
 		}
 	}
