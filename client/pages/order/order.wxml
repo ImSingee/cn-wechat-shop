@@ -23,8 +23,8 @@
         <view class="price">¥ {{ item.price }}</view>
       </view>
       <view class="right">
-          <button>评价</button>
-          <view class="number">x{{ item.count }}</view>
+        <navigator url="/pages/add-comment/add-comment?id={{ item.id }}&name={{ item.name }}&price={{ item.price }}&image={{ item.image }}"><button>评价</button></navigator>
+        <view class="number">x{{ item.count }}</view>
       </view>
     </view>
   </view>
