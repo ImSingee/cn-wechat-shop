@@ -80,13 +80,13 @@ Page({
     },
 
     onTapLogin() {
-        app.doQcloudLogin({
-            success: ({userInfo}) => {
-                this.setData({
-                    userInfo
-                })
-            }
-        })
+      app.doQcloudLogin({
+          success: ({userInfo}) => {
+              this.setData({
+                  userInfo
+              })
+          }
+      })
     },
 
     changeTrolleyEdit() {
