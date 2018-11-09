@@ -1,2 +1,12 @@
-<!--pages/add-comment/add-comment.wxml-->
-<text>pages/add-comment/add-comment.wxml</text>
+<view class="header">
+  <image src="{{ image }}" mode="widthFix"></image>
+  <view class="info">
+    <view>{{ name }}</view>
+    <view class="price">¥ {{ price }}</view>
+  </view>
+</view>
+<view class="input">
+  <textarea placeholder="请填写你的评价" bindinput="checkInput"></textarea>
+  <image src="/images/camera.png" mode="widthFix"></image>
+</view>
+<button class="{{ submitDisabled ? 'disabled' : '' }}" bindtap="submit">提交评价</button>

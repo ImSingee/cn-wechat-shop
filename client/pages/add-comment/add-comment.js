@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    id: -1,
+    name: '',
+    price: -1,
+    image: '',
+    submitDisabled: true
   },
 
   /**
@@ -13,6 +17,12 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.setData({
+      id: options.id,
+      name: options.name,
+      price: options.price,
+      image: options.image
+    })
   },
 
   /**
@@ -62,5 +72,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  checkInput: function (event) {
+    this.setData({
+      submitDisabled: event.detail.value.length === 0
+    })
+  },
+
+  submit: function () {
+    if (this.data.submitDisabled) {
+      return false
+    }
+    console.log('submit')
   }
 })

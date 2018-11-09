@@ -1,1 +1,53 @@
-/* pages/add-comment/add-comment.wxss */
+.header {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16rpx;
+}
+
+.header image {
+  width: 150rpx;
+}
+
+.header .info {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 40rpx;
+  padding: 10rpx 0;
+}
+
+.header .info .price {
+  font-weight: bold;
+}
+
+.input {
+  width: 630rpx;
+  margin: 25rpx;
+  padding: 35rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12rpx;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.input image {
+  width: 50rpx;
+}
+
+button, button:active, button:hover {
+  background-color: #f7e05b;
+  width: 300rpx;
+  font-size: 36rpx;
+  color: black;
+}
+
+button.disabled {
+  color: gray;
+}
+
+button::after {
+  border: none;
+}
