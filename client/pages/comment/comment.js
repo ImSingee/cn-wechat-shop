@@ -1,4 +1,6 @@
-// pages/comment/comment.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
+
 Page({
 
   /**
@@ -24,17 +26,25 @@ Page({
       image: options.image
     })
 
-    this.setData({
-      comments: [{
-        username: '昵称',
-        content: '内容内容内容内容内容内容内容内容内容内容',
-        avatarUrl: options.image // for test
-      }, {
-        username: '昵称',
-        content: '内容内容内容内容内容',
-        avatarUrl: options.image // for test
-      }]
+    qcloud.request({
+      url: config.service.commentListUrl,
+      data: {
+        productId: this.data.id
+      },
+      success: response => {
+        let comments = response.data.data
+        comments.map(x => {
+          let time = new Date(x.create_time)
+          console.log(time)
+          x.createTime = `${time.getFullYear()}年${time.getMonth() + 1}月${time.getDate()}日`
+        })
+        this.setData({
+          comments
+        })
+      }
     })
+
+    
   },
 
   /**

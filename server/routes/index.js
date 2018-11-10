@@ -51,5 +51,7 @@ router.post('/trolley', validationMiddleware, controllers.trolley.update)
 
 // PUT 增加评价
 router.put('/comment', validationMiddleware, controllers.comment.add)
+// GET 获取所有评价
+router.get('/comment', validationMiddleware, controllers.comment.list)
 
 module.exports = router

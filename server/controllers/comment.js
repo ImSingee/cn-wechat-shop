@@ -23,5 +23,14 @@ module.exports = {
 
     
     
+  },
+  list: async ctx => {
+    let productId = +ctx.request.query.productId
+
+    if (!isNaN(productId)) {
+      ctx.state.data = await DB.query('SELECT * FROM comment WHERE product_id=?', [productId])
+    } else {
+      ctx.state.data = []
+    }
   }
 }

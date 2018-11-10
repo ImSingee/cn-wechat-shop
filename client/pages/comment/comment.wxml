@@ -8,12 +8,12 @@
 <view class="content">
   <view class="count">{{ comments.length }} 条评价</view>
   <view class="comments">
-    <view class="comment" wx:for="{{ comments }}">
-      <image src="{{ item.avatarUrl }}" mode="widthFix"></image>
+    <view class="comment" wx:for="{{ comments }}" wx:key="id">
+      <image src="{{ item.avatar }}" mode="widthFix"></image>
       <view class="info">
         <view class="top">
           <view class="name">{{ item.username }}</view>
-          <view class="date">2018年4月2日</view>
+          <view class="date">{{ item.createTime }}</view>
         </view>
         <view>{{ item.content }}</view>
       </view>

@@ -40,7 +40,9 @@ var config = {
         trolleyUpdateUrl: `${host}/weapp/trolley`,
 
         // 添加评价接口
-        commentAddUrl: `${host}/weapp/comment`
+        commentAddUrl: `${host}/weapp/comment`,
+        // 添加评价接口
+        commentListUrl: `${host}/weapp/comment`
     }
 };
 
