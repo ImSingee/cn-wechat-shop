@@ -9,13 +9,16 @@
   <view class="count">{{ comments.length }} 条评价</view>
   <view class="comments">
     <view class="comment" wx:for="{{ comments }}" wx:key="id">
-      <image src="{{ item.avatar }}" mode="widthFix"></image>
+      <image src="{{ item.avatar }}" mode="widthFix" class="avatar"></image>
       <view class="info">
         <view class="top">
           <view class="name">{{ item.username }}</view>
           <view class="date">{{ item.createTime }}</view>
         </view>
         <view>{{ item.content }}</view>
+        <view wx:if="{{ item.imagesList }}" class="images">
+          <image class="image" mode="widthFix" wx:for="{{ item.imagesList }}" wx:key="*this" wx:for-item="imageItem" src="{{ imageItem }}" bindtap="onTapImage" data-urls="{{ item.imagesList }}" data-src="{{ imageItem }}"></image>
+        </view>
       </view>
       
     </view>

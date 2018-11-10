@@ -90,41 +90,74 @@ Page({
       title: '正在提交评价',
     })
 
-    qcloud.request({
-      url: config.service.commentAddUrl,
-      login: true,
-      method: 'PUT',
-      data: {
-        productId: this.data.id,
-        content: this.data.commentData
-      },
-      success: function (response) {
-        console.log(response)
-        wx.hideLoading()
-        if (!response.data.data.error) {
-          wx.showToast({
-            title: '评价成功',
-            complete: function () {
-              setTimeout(() => {
-                wx.navigateBack()
-              }, 1500)
+    let images = []
+    let remain = this.data.images.length
+    this.data.images.map(image => {
+      console.log(config.service.uploadUrl, image)
+      wx.uploadFile({
+        url: config.service.uploadUrl,
+        filePath: image,
+        name: 'file',
+        success: response => {
+          if (response.statusCode === 200) {
+            console.log(response)
+            let data = JSON.parse(response.data)
+            console.log(data)
+            if (!data.code) {
+              images.push(data.data.imgUrl)
             }
-          })
-        } else {
-          wx.showToast({
-            title: '评价失败\r\n' + response.data.data.msg,
-            icon: 'none'
-          })
+          }
+          console.error('Upload fail')
+          remain -= 1
+        },
+        fail: error => {
+          console.error(error.toString())
+          remain -= 1
         }
-      },
-      fail: function (error) {
-        wx.hideLoading()
-        console.error(error)
-        wx.showModal({
-          title: '请求失败',
-          content: error.toString(),
-        })
-      },
+      })
     })
+
+    let i = setInterval(()=> {
+      if (remain === 0) {
+        clearInterval(i)
+        qcloud.request({
+          url: config.service.commentAddUrl,
+          login: true,
+          method: 'PUT',
+          data: {
+            productId: this.data.id,
+            content: this.data.commentData,
+            images
+          },
+          success: function (response) {
+            console.log(response)
+            wx.hideLoading()
+            if (!response.data.data.error) {
+              wx.showToast({
+                title: '评价成功',
+                complete: function () {
+                  setTimeout(() => {
+                    wx.navigateBack()
+                  }, 1500)
+                }
+              })
+            } else {
+              wx.showToast({
+                title: '评价失败\r\n' + response.data.data.msg,
+                icon: 'none'
+              })
+            }
+          },
+          fail: function (error) {
+            wx.hideLoading()
+            console.error(error)
+            wx.showModal({
+              title: '请求失败',
+              content: error.toString(),
+            })
+          },
+        })
+      }
+    }, 100)
   }
 })
