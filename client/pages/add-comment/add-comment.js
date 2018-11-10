@@ -105,9 +105,12 @@ Page({
             console.log(data)
             if (!data.code) {
               images.push(data.data.imgUrl)
+            } else {
+              console.error('Upload fail')
             }
+          } else {
+            console.error('Upload fail')
           }
-          console.error('Upload fail')
           remain -= 1
         },
         fail: error => {
