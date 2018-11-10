@@ -6,15 +6,18 @@
   </view>
 </view>
 <view class="content">
-  <view class="count">1 条评价</view>
+  <view class="count">{{ comments.length }} 条评价</view>
   <view class="comments">
-    <view class="comment">
-      <image src="{{ image }}" mode="widthFix"></image>
+    <view class="comment" wx:for="{{ comments }}">
+      <image src="{{ item.avatarUrl }}" mode="widthFix"></image>
       <view class="info">
-        <view class="name">人名</view>
-        <view>内容内容内容内容内容</view>
+        <view class="top">
+          <view class="name">{{ item.username }}</view>
+          <view class="date">2018年4月2日</view>
+        </view>
+        <view>{{ item.content }}</view>
       </view>
-      <view class="date">2018年4月2日</view>
+      
     </view>
   </view>
 </view>

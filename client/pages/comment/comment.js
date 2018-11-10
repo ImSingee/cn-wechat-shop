@@ -8,7 +8,8 @@ Page({
     id: -1,
     name: '',
     price: -1,
-    image: ''
+    image: '',
+    comments : []
   },
 
   /**
@@ -21,6 +22,18 @@ Page({
       name: options.name,
       price: options.price,
       image: options.image
+    })
+
+    this.setData({
+      comments: [{
+        username: '昵称',
+        content: '内容内容内容内容内容内容内容内容内容内容',
+        avatarUrl: options.image // for test
+      }, {
+        username: '昵称',
+        content: '内容内容内容内容内容',
+        avatarUrl: options.image // for test
+      }]
     })
   },
 

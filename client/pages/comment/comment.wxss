@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 40rpx;
 }
 
 .content .comments .comment image {
@@ -48,12 +49,19 @@
   width: 300rpx;
 }
 
-.content .comments .comment .info .name {
+.content .comments .comment .info .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content .comments .comment .info .top .name {
   color: darkgray;
   font-size: 36rpx;
 }
 
-.content .comments .comment .date {
+.content .comments .comment .info .top .date {
   font-size: 28rpx;
   color: darkgray;
   width: 200rpx;
