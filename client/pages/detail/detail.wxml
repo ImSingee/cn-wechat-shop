@@ -18,7 +18,7 @@
       <view class="text">24 小时内发货并配备运费险</view>
     </view>
   </view>
-  <view class="comment">
+  <view class="comment" bindtap="onTapComment">
     <view class="header">
       <view class="title">已买评价</view>
       <view class="number">1 条</view>

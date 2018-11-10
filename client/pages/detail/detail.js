@@ -197,5 +197,12 @@ Page({
                 wx.hideLoading()
             }
         })
+    },
+
+    onTapComment() {
+      let product = this.data.product
+      wx.navigateTo({
+        url: `/pages/comment/comment?id=${product.id}&name=${product.name}&price=${product.price}&image=${product.image}`,
+      })
     }
 })
