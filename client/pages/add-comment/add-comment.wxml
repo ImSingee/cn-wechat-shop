@@ -7,6 +7,9 @@
 </view>
 <view class="input">
   <textarea placeholder="请填写你的评价" bindinput="changeInput" value="{{ commentData }}"></textarea>
-  <image src="/images/camera.png" mode="widthFix"></image>
+  <view class="images" wx:if="{{ images.length > 0 }}">
+    <image class="image" wx:for="{{ images }}" wx:key="*this" src="{{ item }}" mode="widthFix" bindtap="onTapImage" bindlongpress='onLongTapImage' data-src="{{ item }}"></image>
+  </view>
+  <image src="/images/camera.png" mode="widthFix" bindtap="onTapCamera"></image>
 </view>
 <button class="{{ submitDisabled ? 'disabled' : '' }}" bindtap="submit">提交评价</button>

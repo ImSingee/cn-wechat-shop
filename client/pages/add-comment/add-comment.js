@@ -11,7 +11,8 @@ Page({
     price: -1,
     image: '',
     submitDisabled: true,
-    commentData: ''
+    commentData: '',
+    images: []
   },
 
   /**
@@ -27,59 +28,55 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   changeInput: function (event) {
     this.setData({
       commentData: event.detail.value,
       submitDisabled: event.detail.value.length === 0
+    })
+  },
+
+  onTapCamera: function (event) {
+    const maxLength = 3
+    let canChooseNumber = maxLength - this.data.images.length
+
+    if (canChooseNumber > 0) {
+      wx.chooseImage({
+        count: canChooseNumber,
+        sizeType: ['compressed'],
+        success: res => {
+          this.setData({
+            images: this.data.images.concat(res.tempFilePaths)
+          })
+        },
+      })
+    } else {
+      wx.showToast({
+        title: `最多选择 ${maxLength} 张图片`,
+        icon: 'none'
+      })
+    }
+    
+  },
+
+  onTapImage: function (event) {
+    wx.previewImage({
+      urls: this.data.images,
+      current: event.currentTarget.dataset.src
+    })
+  },
+
+  onLongTapImage: function (event) {
+    wx.showModal({
+      title: '',
+      content: '删除此图片？',
+      confirmText: '确定删除',
+      success: res => {
+        if (res.confirm) {
+          let images = this.data.images
+          images = images.filter(element => element !== event.currentTarget.dataset.src)
+          this.setData({ images })
+        }
+      }
     })
   },
 
