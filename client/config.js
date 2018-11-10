@@ -37,7 +37,10 @@ var config = {
         // 获取购物车产品接口
         trolleyListUrl: `${host}/weapp/trolley`,
         // 更新购物车产品接口
-        trolleyUpdateUrl: `${host}/weapp/trolley`
+        trolleyUpdateUrl: `${host}/weapp/trolley`,
+
+        // 添加评价接口
+        commentAddUrl: `${host}/weapp/comment`
     }
 };
 

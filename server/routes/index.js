@@ -49,4 +49,7 @@ router.get('/trolley', validationMiddleware, controllers.trolley.list)
 // POST 更新购物车商品
 router.post('/trolley', validationMiddleware, controllers.trolley.update)
 
+// PUT 增加评价
+router.put('/comment', validationMiddleware, controllers.comment.add)
+
 module.exports = router

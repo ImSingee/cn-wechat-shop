@@ -1,6 +1,7 @@
-// pages/add-comment/add-comment.js
-Page({
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -9,7 +10,8 @@ Page({
     name: '',
     price: -1,
     image: '',
-    submitDisabled: true
+    submitDisabled: true,
+    commentData: ''
   },
 
   /**
@@ -74,8 +76,9 @@ Page({
 
   },
 
-  checkInput: function (event) {
+  changeInput: function (event) {
     this.setData({
+      commentData: event.detail.value,
       submitDisabled: event.detail.value.length === 0
     })
   },
@@ -84,6 +87,47 @@ Page({
     if (this.data.submitDisabled) {
       return false
     }
-    console.log('submit')
+    console.log(this.data.commentData)
+
+    wx.showLoading({
+      title: '正在提交评价',
+    })
+
+    qcloud.request({
+      url: config.service.commentAddUrl,
+      login: true,
+      method: 'PUT',
+      data: {
+        productId: this.data.id,
+        content: this.data.commentData
+      },
+      success: function (response) {
+        console.log(response)
+        wx.hideLoading()
+        if (!response.data.data.error) {
+          wx.showToast({
+            title: '评价成功',
+            complete: function () {
+              setTimeout(() => {
+                wx.navigateBack()
+              }, 1500)
+            }
+          })
+        } else {
+          wx.showToast({
+            title: '评价失败\r\n' + response.data.data.msg,
+            icon: 'none'
+          })
+        }
+      },
+      fail: function (error) {
+        wx.hideLoading()
+        console.error(error)
+        wx.showModal({
+          title: '请求失败',
+          content: error.toString(),
+        })
+      },
+    })
   }
 })
