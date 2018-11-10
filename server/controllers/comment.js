@@ -32,5 +32,17 @@ module.exports = {
     } else {
       ctx.state.data = []
     }
+  },
+  listFirst: async ctx => {
+    let productId = +ctx.request.query.productId
+
+    if (!isNaN(productId)) {
+      ctx.state.data = {
+        count: (await DB.query('SELECT count(id) AS count FROM comment WHERE product_id=?', [productId]))[0]['count'],
+        first: (await DB.query('SELECT content FROM comment WHERE product_id=? LIMIT 1', [productId]))[0]
+      }
+    } else {
+      ctx.state.data = []
+    }
   }
 }

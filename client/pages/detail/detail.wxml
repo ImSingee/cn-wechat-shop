@@ -21,10 +21,10 @@
   <view class="comment" bindtap="onTapComment">
     <view class="header">
       <view class="title">已买评价</view>
-      <view class="number">1 条</view>
-      <image src="/images/grey-arrow.png" mode="aspectFill"></image>
+      <view class="number">{{ comment.count }} 条</view>
+      <image src="/images/grey-arrow.png" mode="aspectFill" wx:if="{{ comment.first }}"></image>
     </view>
-    <view class="content">"test"</view>
+    <view class="content" wx:if="{{ comment.first }}">"{{ comment.first.content }}"</view>
   </view>
 </view>
 <view class="buttons">

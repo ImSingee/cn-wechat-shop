@@ -53,5 +53,7 @@ router.post('/trolley', validationMiddleware, controllers.trolley.update)
 router.put('/comment', validationMiddleware, controllers.comment.add)
 // GET 获取所有评价
 router.get('/comment', validationMiddleware, controllers.comment.list)
+// GET 获取第一条评价与总数
+router.get('/comment/first', validationMiddleware, controllers.comment.listFirst)
 
 module.exports = router

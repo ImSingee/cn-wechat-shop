@@ -42,7 +42,9 @@ var config = {
         // 添加评价接口
         commentAddUrl: `${host}/weapp/comment`,
         // 添加评价接口
-        commentListUrl: `${host}/weapp/comment`
+        commentListUrl: `${host}/weapp/comment`,
+        // 获取评价数量与第一条内容接口
+        commentListFirstUrl: `${host}/weapp/comment/first`
     }
 };
 

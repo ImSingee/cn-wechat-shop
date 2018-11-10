@@ -7,7 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        product: {}
+      product: {},
+      comment: {}
     },
 
     /**
@@ -87,6 +88,21 @@ Page({
                         wx.navigateBack()
                     }, 2000)
                 }
+                qcloud.request({
+                  url: config.service.commentListFirstUrl,
+                  data: {
+                    productId: id
+                  },
+                  success: response => {
+                    console.log(response)
+                    this.setData({
+                      comment: response.data.data
+                    })
+                  },
+                  fail: error => {
+                    console.error(error)
+                  }
+                })
             },
             error: error => {
                 console.error(error)
@@ -201,8 +217,10 @@ Page({
 
     onTapComment() {
       let product = this.data.product
-      wx.navigateTo({
-        url: `/pages/comment/comment?id=${product.id}&name=${product.name}&price=${product.price}&image=${product.image}`,
-      })
+      if (this.data.comment.first) {
+        wx.navigateTo({
+          url: `/pages/comment/comment?id=${product.id}&name=${product.name}&price=${product.price}&image=${product.image}`,
+        })
+      }
     }
 })
